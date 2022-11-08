@@ -1,8 +1,8 @@
 const baseUrl = "https://m2-api-adot-pet.herokuapp.com/"
 
-export async function UpdatePet(token, newDataPet, id) {
+export async function UpdatePet(token, newDataPet, idPet) {
     try {
-        const response = await fetch(`${baseUrl}pets/${id}`, {
+        const response = await fetch(`${baseUrl}pets/${idPet}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json",
@@ -15,6 +15,8 @@ export async function UpdatePet(token, newDataPet, id) {
         console.log(err);
     }
 }
+
+
 
 export async function UpdateProfile(token, newDataProfile) {
     try {

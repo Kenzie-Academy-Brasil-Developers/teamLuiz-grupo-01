@@ -16,3 +16,20 @@ export async function deleteProfile(token) {
     }
 }
 
+
+
+export async function deletePet(token, idPet) {
+    try {
+        const response = await fetch(`${baseUrl}pets/${idPet}`, {
+            method: 'DELETE',
+            headers: {
+                "content-type": "application/json",
+                "Authorization": `Bearer ${token.token}`
+            }
+        })
+        return response
+    }
+    catch (err) {
+        console.log(err);
+    }
+}

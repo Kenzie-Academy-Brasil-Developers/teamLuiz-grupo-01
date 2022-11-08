@@ -16,7 +16,7 @@ async function adoptePetApi(token, pet) {
 
 export async function createUser(dataUser) {
     try {
-        const response = await fetch(`${baseUrl}pets`, {
+        const response = await fetch(`${baseUrl}users`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
