@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap');
+
+
+:root {
+    --color-brand: #4E2096;
+    --color-white: #FFFFFF;
+    --color-black:  #1B1C1E;
+    --color-purple-600: #B48CF2;
+    --color-gray-500: #EEEEEE;
+    --color-grey-200: #90A4AE;
+    --color-red: #EA534A;
+    --color-green: #33CC66;
+
+    --radius: 1rem;
+
+    /* Espaçamento entre os itens da lista */
+    --gap-list: 4rem;
+    /* Espaçamento somente entre os inputs dos formulários MODAIS */
+    --gap-input: 0.75rem;
+
+}
