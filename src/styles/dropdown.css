@@ -1,0 +1,21 @@
+.dropdown{
+    position: absolute;
+    right: 1rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    background-image: url(/src/assets/img/dropdown.png);
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+.dropdown-close{
+    background-image: url(/src/assets/img/closeDropdown.png);
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: none;
+}
+
+.hideMe{
+    display: none;
+}
