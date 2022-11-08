@@ -1,5 +1,25 @@
 export {getAllPetsApi}
 
+const baseUrl = 'https://m2-api-adot-pet.herokuapp.com/'
+
+export async function getReadAllPets() {
+    try {
+        const response = await fetch(`${baseUrl}pets`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+      const responseJson = response.json()
+      return responseJson
+    }
+    catch (err) {
+        console.log(err);
+    }
+}
+
+
+
 async function getAllPetsApi(token){
     let allPets = await fetch(`https://m2-api-adot-pet.herokuapp.com/pets`,{
         method: "GET",
@@ -16,4 +36,5 @@ let myToken ={
     token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2Njc5MTc3MjYsImV4cCI6MTY2ODUyMjUyNiwic3ViIjoiOGIxYWRlNmItZGZkZS00NzVjLTliYjktOTUzODM1MTRlNGQwIn0.uOnxbjxkqHkv-aDcyoVgvLYjU0TGCqcyni5ehV1bbnI"
 }
 */
+
 
