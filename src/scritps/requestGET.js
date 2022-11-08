@@ -1,10 +1,12 @@
-export {getAllPetsApi}
+const baseUrl = "https://m2-api-adot-pet.herokuapp.com/"
 
-async function getAllPetsApi(token){
-    let allPets = await fetch(`https://m2-api-adot-pet.herokuapp.com/pets`,{
+export { getAllPetsApi }
+
+async function getAllPetsApi(token) {
+    let allPets = await fetch(`https://m2-api-adot-pet.herokuapp.com/pets`, {
         method: "GET",
-        headers:{
-            "content-type":"application/json",
+        headers: {
+            "content-type": "application/json",
             "Authorization": `Bearer ${token.token}`
         }
     })
@@ -17,3 +19,38 @@ let myToken ={
 }
 */
 
+export async function readProfile(token) {
+    try {
+        const response = await fetch(`${baseUrl}users/profile`, {
+            method: "GET",
+            headers: {
+                "content-type": "application/json",
+                "Authorization": `Bearer ${token.token}`
+            }
+        })
+        
+        return await response.json()
+    }
+    catch (err) {
+        console.log(err);
+    }
+
+}
+
+export async function readAllMyPets(token) {
+    try {
+        const response = await fetch(`${baseUrl}pets/my_pets`, {
+            method: "GET",
+            headers: {
+                "content-type": "application/json",
+                "Authorization": `Bearer ${token.token}`
+            }
+        })
+
+        return await response.json()
+    }
+    catch (err) {
+        console.log(err);
+    }
+
+}
