@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap');
 
+* {
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+}
 
 :root {
     --color-brand: #4E2096;
