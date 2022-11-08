@@ -1,3 +1,4 @@
+
 .button-close{
     position: absolute;
     top: 0.5rem;
@@ -8,4 +9,15 @@
     background-image: url(/src/assets/img/close.png);
     border: none;
     cursor: pointer;
+ }
+
+.buttonAdoption{
+    background-color: #33CC66;
+    height: 28px;
+    border-radius: 14px;
+    color: whitesmoke;
+    border: 1px solid #33CC66;
+    font-weight: 500;
+    font-size: 16px;
+
 }
