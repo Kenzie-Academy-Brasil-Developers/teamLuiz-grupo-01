@@ -13,11 +13,32 @@ async function getAllPetsApi(token) {
 
     return await allPets.json()
 }
-/*
+
 let myToken ={
     token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2Njc5MTc3MjYsImV4cCI6MTY2ODUyMjUyNiwic3ViIjoiOGIxYWRlNmItZGZkZS00NzVjLTliYjktOTUzODM1MTRlNGQwIn0.uOnxbjxkqHkv-aDcyoVgvLYjU0TGCqcyni5ehV1bbnI"
 }
 */
+
+
+export async function getReadAllPets() {
+    try {
+        const response = await fetch(`${baseUrl}pets`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+      const responseJson = response.json()
+      return responseJson
+    }
+    catch (err) {
+        console.log(err);
+    }
+}
+
+/*
+
+
 
 export async function readProfile(token) {
     try {
@@ -54,3 +75,4 @@ export async function readAllMyPets(token) {
     }
 
 }
+

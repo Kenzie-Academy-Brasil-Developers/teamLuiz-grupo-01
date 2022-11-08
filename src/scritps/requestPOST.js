@@ -1,9 +1,12 @@
+
+
+export {loginApi, adoptePetApi, registerApi,adoptePetApi} 
 const baseUrl = "https://m2-api-adot-pet.herokuapp.com/"
 
-export { adoptePetApi }
 async function adoptePetApi(token, pet) {
 
-    let adoption = fetch("https://m2-api-adot-pet.herokuapp.com/adoptions", {
+    let adoption = await fetch(`${urlBase}/adoptions`,{
+
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -13,6 +16,7 @@ async function adoptePetApi(token, pet) {
     })
 
 }
+
 
 export async function createUser(dataUser) {
     try {
@@ -43,6 +47,45 @@ export async function createPet(token, dataPet) {
     }
     catch (err) {
         console.log(err);
+    }
+}
+
+
+async function loginApi (body){
+  
+    const response = await fetch(`${urlBase}/session/login`, {
+        method: "POST",
+        headers: {
+            "Content-type" : 'application/json'
+        },
+        body: JSON.stringify(body)
+    })
+    if(response.ok){
+        const responseJson = await response.json()
+        setTimeout(() => {
+            window.location.href = "../homeLogged/index.html"
+        }, 1000)
+        return responseJson
+    }
+    else {
+        console.log('usúario e senha errado')
+    }
+
+}
+
+async function registerApi (body){
+    const response = await fetch(`${urlBase}/users`, {
+        method: "POST",
+        headers: {
+            "Content-type" : "application/json"
+        },
+        body: JSON.stringify(body)
+    })
+    if(response.ok){
+        return 'ok'
+    }
+    else {
+        return 'Usuário já cadastrado'
     }
 }
 
