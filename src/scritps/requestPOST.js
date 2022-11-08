@@ -1,19 +1,55 @@
-export {loginApi, adoptePetApi, registerApi} 
 
-const urlBase = 'https://m2-api-adot-pet.herokuapp.com'
 
-async function adoptePetApi(token, pet){
+export {loginApi, adoptePetApi, registerApi,adoptePetApi} 
+const baseUrl = "https://m2-api-adot-pet.herokuapp.com/"
+
+async function adoptePetApi(token, pet) {
 
     let adoption = await fetch(`${urlBase}/adoptions`,{
+
         method: "POST",
-        headers:{
-            "Content-Type":"application/json",
-            "Authorization":`Bearer ${token.token}`
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token.token}`
         },
         body: JSON.stringify(pet)
     })
 
 }
+
+
+export async function createUser(dataUser) {
+    try {
+        const response = await fetch(`${baseUrl}users`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(dataUser)
+        })
+    }
+    catch (err) {
+        console.log(err);
+    }
+}
+
+
+export async function createPet(token, dataPet) {
+    try {
+        const response = await fetch(`${baseUrl}pets`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token.token}`
+            },
+            body: JSON.stringify(dataPet)
+        })
+    }
+    catch (err) {
+        console.log(err);
+    }
+}
+
 
 async function loginApi (body){
   
@@ -52,3 +88,4 @@ async function registerApi (body){
         return 'Usuário já cadastrado'
     }
 }
+
