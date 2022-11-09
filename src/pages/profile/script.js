@@ -3,6 +3,7 @@ import { openModal } from "../../scritps/modal.js";
 import { dropdown } from "../../scritps/dropdown.js";
 import { updateProfileApi } from "../../scritps/requestPATCH.js";
 import { deleteProfileApi } from "../../scritps/requestDELETE.js";
+import { createPetApi } from "../../scritps/requestPOST.js";
 
 dropdown();
 const token = JSON.parse(localStorage.getItem('@userToken'))
@@ -12,14 +13,14 @@ const token = JSON.parse(localStorage.getItem('@userToken'))
 // FUNÇÃO ABAIXO PARA VERIFICAR O LOGIN DO USUÁRIO E REDIRECIONAR PARA A HOMEPAGE CASO ESTEJA SEM LOGIN
 
 async function verifyAuthorization(token) {
-//   // A FUNÇÃO QUE CHAMAR O LOGIN E TROUXER PRA ESTA PAGE PRECISA TRAZER O TOKEN
+  //   // A FUNÇÃO QUE CHAMAR O LOGIN E TROUXER PRA ESTA PAGE PRECISA TRAZER O TOKEN
 
-if (token) {
-renderMyProfile(token);
-} else {
-  localStorage.removeItem("token");
-  window.location.replace("../homeUnlogged/index.html");
-}
+  if (token) {
+    renderMyProfile(token);
+  } else {
+    localStorage.removeItem("token");
+    window.location.replace("../homeUnlogged/index.html");
+  }
 }
 verifyAuthorization(token);
 
@@ -99,7 +100,7 @@ async function listenners(token) {
   buttonLogin.addEventListener("click", (e) => {
     e.preventDefault();
     localStorage.removeItem("@userToken");
-    window.location.replace("../homeUnlogged/index.html");    
+    window.location.replace("../homeUnlogged/index.html");
   });
 
   updateProfile.addEventListener("click", (e) => {
@@ -124,32 +125,32 @@ async function listenners(token) {
 
 
     myForm.addEventListener('submit', async (e) => {
-        e.preventDefault()
+      e.preventDefault()
 
-        const inputs = [...document.querySelectorAll('input')]
+      const inputs = [...document.querySelectorAll('input')]
 
-        inputs.forEach((e) => {
-            data[e.id] = e.value
-        })
-        const retornoApiUpdate = await updateProfileApi(token, data)
+      inputs.forEach((e) => {
+        data[e.id] = e.value
+      })
+      const retornoApiUpdate = await updateProfileApi(token, data)
 
-        if(retornoApiUpdate){
-          const myModal = document.querySelector('.modal-background')
-          myModal.remove()
-              setTimeout(() => {
-            window.location.reload()
-          }, 4000)
-        }
-        
-      });
-    })
+      if (retornoApiUpdate) {
+        const myModal = document.querySelector('.modal-background')
+        myModal.remove()
+        setTimeout(() => {
+          window.location.reload()
+        }, 4000)
+      }
+
+    });
+  })
 
 
 
   deleteProfile.addEventListener("click", (e) => {
     e.preventDefault();
     const sectionDelete = document.createElement("section");
-    sectionDelete.insertAdjacentHTML("afterbegin",`
+    sectionDelete.insertAdjacentHTML("afterbegin", `
       <h2>Deseja mesmo deletar sua conta?</h2>
       <button id="cancelDelete">Não desejo deletar minha conta</button>
       <button id="confirmDelete">Quero deletar minha conta</button>
@@ -157,18 +158,18 @@ async function listenners(token) {
     openModal(sectionDelete);
 
     const cancelDelete = document.getElementById("cancelDelete");
-    cancelDelete.addEventListener("click",event=>{
+    cancelDelete.addEventListener("click", event => {
       event.preventDefault();
       document.querySelector(".modal-background").remove();
     })
 
     const confirmDelete = document.getElementById("confirmDelete");
-    confirmDelete.addEventListener("click",async event=>{
-      event.preventDefault();    
-      await deleteProfileApi(token)      
+    confirmDelete.addEventListener("click", async event => {
+      event.preventDefault();
+      await deleteProfileApi(token)
       setTimeout(() => {
         window.location.reload()
-      }, 4000)          
+      }, 4000)
     })
 
   });
@@ -176,7 +177,38 @@ async function listenners(token) {
   buttonRegisterNewPet.addEventListener("click", (e) => {
     e.preventDefault();
 
-    /* openModal(children) */; // WTF CHILDREN
+    body.insertAdjacentHTML('beforeend', `
+    <form class="myForm" action="">
+    <h2>Cadastrar pet</h2>
+    <input  required id="name" placeholder="Nome" type="text">
+    <input  required id="bread" placeholder="Raça" type="text">
+    <input  required id="species" placeholder="Espécie" type="text">
+    <input  required id="avatar_url" placeholder="Avatar" type="link">
+    <button class="next-button" type="submit">Cadastrar</button>
+  </form>
+    `)
+    const myForm = document.querySelector('.myForm')
+    openModal(myForm);
+
+    myForm.addEventListener('submit', async (e) => {
+      e.preventDefault()
+      const inputs = [...document.querySelectorAll('input')]
+      const data = {}
+
+      inputs.forEach((e) => {
+        data[e.id] = e.value
+      })
+     
+      const retornoApiCreate = await createPetApi(token, data)
+     
+      if (retornoApiCreate) {
+        const myModal = document.querySelector('.modal-background')
+        myModal.remove()
+        setTimeout(() => {
+          window.location.reload()
+        }, 4000)
+      }
+    })
   });
 
   buttonsUpdatePet.forEach((element) => {
