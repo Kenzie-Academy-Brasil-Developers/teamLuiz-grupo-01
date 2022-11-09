@@ -1,15 +1,39 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
-    
+    <link rel="stylesheet" href="/src/styles/globalStyles.css">
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="../../styles/buttons.css">
+    <link rel="stylesheet" href="/src/styles/dropdown.css">
+    <link rel="stylesheet" href="/src/styles/modal.css">
+
     <script defer type="module" src="./script.js"></script>
     <title>Document</title>
 </head>
+
 <body>
-    
+    <header>
+        <div>
+            <button class="dropdown" id="dropdown"></button>
+            <img class="logo" src="../../assets/img/Logo.svg" alt="">
+            <div class="button-drop">
+                <button class="hideMe button buttonPurple2 login" id="menuDrop">Login</button>
+                <button class="hideMe button buttonPurple register" id="menuDrop">Register</button>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section class="containerList">
+            <ul class="listAllPets"> </ul>
+        </section>
+    </main>
+    <footer>
+        <p>KenziePets | Todos os Direitos Reservados</p>
+    </footer>
 </body>
+
 </html>

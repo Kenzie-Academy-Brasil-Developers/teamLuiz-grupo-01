@@ -1,5 +1,7 @@
 import {getAllPetsApi} from "../../scritps/requestGET.js"
 import {renderPet} from "../../scritps/render.js"
+import { dropdown } from "../../scritps/dropdown.js"
+
 
 
 let myToken ={
@@ -16,4 +18,6 @@ petAvaliabled.forEach(renderPet)
 
 }
 
+
 showPetsForAdoption()
+dropdown()
