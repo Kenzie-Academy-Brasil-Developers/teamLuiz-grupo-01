@@ -9,7 +9,7 @@ async function getAllPetsApi(token) {
     method: "GET",
     headers: {
       "content-type": "application/json",
-      Authorization: `Bearer ${token.token}`,
+      Authorization: `Bearer ${token}`,
     },
   });
 
