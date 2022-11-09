@@ -20,7 +20,7 @@ export async function updatePetApi (token, newDataPet, idPet) {
             
             return response
         } else {
-            toast('Parâmetros inválidos', 'red')
+            toast('Parâmegit os inválidos', 'red')
         }
 
     }
