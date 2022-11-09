@@ -1,8 +1,8 @@
-
 import { dropdown } from "../../scritps/dropdown.js"
 import { openModal } from "../../scritps/modal.js"
 import { loginApi, registerApi } from "../../scritps/requestPOST.js"
 import { getReadAllPets } from "../../scritps/requestGET.js"
+
 
 
 let buttonLogin = document.querySelector('.login')
@@ -16,10 +16,10 @@ buttonRegister.addEventListener('click', () => {
     openModalRegister()
 })
 
-function openModalLogin (){
+function openModalLogin() {
 
-    
-        body.insertAdjacentHTML('beforeend', `
+
+    body.insertAdjacentHTML('beforeend', `
     
         <form class="myForm" action="">
         <h2>Login</h2>
@@ -30,36 +30,36 @@ function openModalLogin (){
     </form>
         
         `)
-        let myForm = document.querySelector('.myForm')
-        openModal(myForm)
-    
-        const bodyApi = {}
-    
-        myForm.addEventListener('submit', async (e) => {
-            e.preventDefault()
-            let inputForm = [...document.querySelectorAll('input')]
-    
-            inputForm.forEach((e) => {
-                bodyApi[e.id] = e.value
-            })
-    
-            const returnApi = await loginApi(bodyApi)
-            if(returnApi){
-                localStorage.setItem('@userToken', JSON.stringify(returnApi.token))
-            }
+    let myForm = document.querySelector('.myForm')
+    openModal(myForm)
+
+    const bodyApi = {}
+
+    myForm.addEventListener('submit', async (e) => {
+        e.preventDefault()
+        let inputForm = [...document.querySelectorAll('input')]
+
+        inputForm.forEach((e) => {
+            bodyApi[e.id] = e.value
         })
-        let linkClick = document.querySelector('.link-click')
-        linkClick.addEventListener('click', (e) => {
-            e.preventDefault()
-            let myModal = document.querySelector('.modal-background')
-            myModal.remove()
-            openModalRegister()
-        })
+
+        const returnApi = await loginApi(bodyApi)
+        if (returnApi) {
+            localStorage.setItem('@userToken', JSON.stringify(returnApi.token))
+        }
+    })
+    let linkClick = document.querySelector('.link-click')
+    linkClick.addEventListener('click', (e) => {
+        e.preventDefault()
+        let myModal = document.querySelector('.modal-background')
+        myModal.remove()
+        openModalRegister()
+    })
 }
 
 
-function openModalRegister(){
-        body.insertAdjacentHTML('beforeend', `
+function openModalRegister() {
+    body.insertAdjacentHTML('beforeend', `
     
         <form class="myForm" action="">
         <h2>Cadastrar</h2>
@@ -72,45 +72,45 @@ function openModalRegister(){
     </form>
         
         `)
-    
-        let myForm = document.querySelector('.myForm')
-        openModal(myForm)
-    
-        const bodyApi = {}
-    
-        myForm.addEventListener('submit', async (e) => {
-            e.preventDefault()
-            let inputForm = [...document.querySelectorAll('input')]
-    
-            inputForm.forEach((e) => {
-                bodyApi[e.id] = e.value
-            })
-            
-            const responseApi = await registerApi(bodyApi)
-            console.log(responseApi)
-            if(responseApi === 'ok'){
-                let myModal = document.querySelector('.modal-background')
-            myModal.remove()
-            openModalLogin()
-            }
-            
-    
+
+    let myForm = document.querySelector('.myForm')
+    openModal(myForm)
+
+    const bodyApi = {}
+
+    myForm.addEventListener('submit', async (e) => {
+        e.preventDefault()
+        let inputForm = [...document.querySelectorAll('input')]
+
+        inputForm.forEach((e) => {
+            bodyApi[e.id] = e.value
         })
 
-
-        let linkClick = document.querySelector('.link-click')
-        linkClick.addEventListener('click', (e) => {
-            e.preventDefault()
+        const responseApi = await registerApi(bodyApi)
+        console.log(responseApi)
+        if (responseApi === 'ok') {
             let myModal = document.querySelector('.modal-background')
             myModal.remove()
             openModalLogin()
-        })
+        }
+
+
+    })
+
+
+    let linkClick = document.querySelector('.link-click')
+    linkClick.addEventListener('click', (e) => {
+        e.preventDefault()
+        let myModal = document.querySelector('.modal-background')
+        myModal.remove()
+        openModalLogin()
+    })
 }
+
 
 async function renderCardPet() {
     const tagUl = document.querySelector('.listAllPets')
     const arrayPets = await getReadAllPets()
-    
     arrayPets.forEach(pet => {
         const tagLi = document.createElement('li')
         const divImg = document.createElement('div')
@@ -123,14 +123,17 @@ async function renderCardPet() {
         tagNamePet.innerText = pet.name
         const tagSpecies = document.createElement('p')
         tagSpecies.innerText = pet.species
-        
         divImg.appendChild(imgPet)
         divData.append(tagNamePet, tagSpecies)
         tagLi.append(divImg, divData)
-        
         tagUl.appendChild(tagLi)
     })
 }
 
 renderCardPet()
+
+
+
+
+
 dropdown()
