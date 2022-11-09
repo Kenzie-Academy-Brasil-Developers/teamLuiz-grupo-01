@@ -1,11 +1,9 @@
-
-
-export {loginApi, adoptePetApi, registerApi,adoptePetApi} 
+export {loginApi, adoptePetApi, registerApi }
 const baseUrl = "https://m2-api-adot-pet.herokuapp.com/"
 
-async function adoptePetApi(token, pet) {
+async function adoptePetApi(token,pet) {
 
-    let adoption = await fetch(`${urlBase}/adoptions`,{
+    let adoption = await fetch(`${baseUrl}adoptions`,{
 
         method: "POST",
         headers: {

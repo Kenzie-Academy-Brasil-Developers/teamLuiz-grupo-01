@@ -16,10 +16,11 @@ async function getAllPetsApi(token) {
   return await allPets.json();
 }
 
-let myToken = {
-  token:
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2Njc5MTc3MjYsImV4cCI6MTY2ODUyMjUyNiwic3ViIjoiOGIxYWRlNmItZGZkZS00NzVjLTliYjktOTUzODM1MTRlNGQwIn0.uOnxbjxkqHkv-aDcyoVgvLYjU0TGCqcyni5ehV1bbnI",
-};
+let myToken ={
+    token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2Njc5MTc3MjYsImV4cCI6MTY2ODUyMjUyNiwic3ViIjoiOGIxYWRlNmItZGZkZS00NzVjLTliYjktOTUzODM1MTRlNGQwIn0.uOnxbjxkqHkv-aDcyoVgvLYjU0TGCqcyni5ehV1bbnI"
+}
+
+
 
 export async function getReadAllPets() {
   try {
@@ -36,7 +37,10 @@ export async function getReadAllPets() {
   }
 }
 
-// USED IN THE PROFILE PAGE
+
+
+
+
 export async function readProfile(token) {
     try {
         const request = await fetch(baseUrl + 'users/profile', {
