@@ -1,6 +1,6 @@
 
 
-export {loginApi, adoptePetApi, registerApi,adoptePetApi} 
+export {loginApi, adoptePetApi, registerApi} 
 const baseUrl = "https://m2-api-adot-pet.herokuapp.com/"
 
 async function adoptePetApi(token, pet) {

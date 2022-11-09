@@ -50,15 +50,8 @@ header {
     box-shadow: 1px 0px 1px rgb(180, 180, 180);
 }
 
-.dropdown {
-    display: none;
-}
-
-.containerButtons {
-    display: none;
-}
-
 .containerHeader {
+    position: relative;
     width: 90%;
     height: 81px;
     margin: 0 auto;
