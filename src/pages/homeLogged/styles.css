@@ -9,6 +9,7 @@ body {
 }
 
 .container{
+    position: relative;
 width: 100vw;
 margin: 0 auto;
 }
@@ -30,6 +31,7 @@ header{
 }
 
 ul {
+    padding-top: 80px;
     list-style: none;
     gap: 16px;
 }
