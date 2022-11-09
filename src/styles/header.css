@@ -1,0 +1,19 @@
+.header{
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    background-color: var(--color-white);
+    width: 100vw;
+    height: 80px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+}
+.header .container{
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header .logo{
+    width: 150px;
+}
