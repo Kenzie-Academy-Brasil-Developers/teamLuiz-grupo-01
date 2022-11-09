@@ -2,7 +2,7 @@
 // toast('mensagem tipo string')
 // call in the request.ok
 
-export function toast(message) {
+export function toast(message, color) {
   const body = document.querySelector("body");
 
   const container = document.createElement("div");
@@ -12,13 +12,9 @@ export function toast(message) {
   // h3.classList.add(" FONT - STYLE ");
   h3.innerText = message;
 
-  if (
-    message == "Sua conta foi criada com sucesso!" ||
-    message == "Você fez login com sucesso!" ||
-    message == "Perfil atualizado com sucesso!"
-  ) {
+  if (color == "green") {
     container.classList.add("container-green");
-  } else {
+  } else if (color == "red") {
     container.classList.add("container-red");
   }
 
