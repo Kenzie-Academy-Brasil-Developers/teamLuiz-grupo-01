@@ -17,7 +17,7 @@ async function getAllPetsApi(token) {
 let myToken ={
     token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2Njc5MTc3MjYsImV4cCI6MTY2ODUyMjUyNiwic3ViIjoiOGIxYWRlNmItZGZkZS00NzVjLTliYjktOTUzODM1MTRlNGQwIn0.uOnxbjxkqHkv-aDcyoVgvLYjU0TGCqcyni5ehV1bbnI"
 }
-*/
+
 
 
 export async function getReadAllPets() {
@@ -36,7 +36,7 @@ export async function getReadAllPets() {
     }
 }
 
-/*
+
 
 
 
