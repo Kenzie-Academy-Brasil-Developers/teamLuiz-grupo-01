@@ -1,9 +1,8 @@
 export {renderPet}
 import {adoptePetApi} from "../scritps/requestPOST.js"
+import {openModal} from "../scritps/modal.js"
 
-let myToken ={
-    token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2Njc5MTc3MjYsImV4cCI6MTY2ODUyMjUyNiwic3ViIjoiOGIxYWRlNmItZGZkZS00NzVjLTliYjktOTUzODM1MTRlNGQwIn0.uOnxbjxkqHkv-aDcyoVgvLYjU0TGCqcyni5ehV1bbnI"
-}
+let myToken = JSON.parse(localStorage.getItem("@userToken"))
 
 function renderPet(pet){
 
@@ -30,8 +29,10 @@ function renderPet(pet){
     let buttonAdoption = document.createElement("button")
     buttonAdoption.innerText = "Me adota?"
     buttonAdoption.classList = "buttonAdoption"
-    buttonAdoption.addEventListener("click", ()=>{
-        adoptePetApi(myToken, {pet_id: `${pet.id}`})
+    buttonAdoption.addEventListener("click", ()=>{  
+        let modalConfirm = confirmAdoptionModal(myToken, {pet_id: `${pet.id}`})      
+        openModal(modalConfirm)
+        
     })
 
     divInfoPet.append(namePet,speciesPet,buttonAdoption)
@@ -39,4 +40,28 @@ function renderPet(pet){
     li.append(divImgFrame,divInfoPet)
 
     document.querySelector("ul").appendChild(li)
+}
+
+function confirmAdoptionModal(token, pet){
+    let divModal = document.createElement("section")
+    divModal.classList = "flex column modalConfirm"
+    
+
+    let title = document.createElement("h2")
+    title.innerText = "Adotar este pet?"
+
+    let buttonAdoption = document.createElement("button")
+    buttonAdoption.innerText = "Adotar"
+    buttonAdoption.classList = "buttonAdoption"
+    buttonAdoption.addEventListener("click", ()=>{        
+        adoptePetApi({token:`${token}`},pet)
+        document.querySelector(".modal-background").remove()
+        /*chamar toast avisando que confirmou*/
+    })
+
+    divModal.append(title,buttonAdoption)
+
+    return divModal
+
+    
 }
