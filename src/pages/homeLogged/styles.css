@@ -9,14 +9,21 @@ body {
 }
 
 .container{
+    position: relative;
 width: 100vw;
-padding: 1rem;
 margin: 0 auto;
+}
 
+
+header{
+    padding: 16px 8px;
+    border-bottom: 2px solid var(--color-grey-200);
+    margin-bottom: 1rem;
 }
 
 .logo {
     width: 150px;
+    margin-right: auto;
 }
 
 .hideMe {
@@ -24,6 +31,7 @@ margin: 0 auto;
 }
 
 ul {
+    padding-top: 80px;
     list-style: none;
     gap: 16px;
 }
@@ -48,12 +56,6 @@ ul {
 width: 100%;
 }
 
-.dropdown{
-    width: 32px;
-    height: 32px;
-    background-color: gray;
-    margin-left: auto;
-}
 
 .petAdoption {
     max-width: 90%;
@@ -86,8 +88,43 @@ margin: 0 auto;
 footer{
     margin-top: 1rem;
     background-color: rgba(137, 43, 226, 0.315);
+    padding: 1rem 0;
 }
 
 footer span{
     margin: 0 auto;  
+}
+
+@media (min-width: 768px){
+    .container{
+        max-width: 700px;
+    }
+
+    .petAdoption{
+        width: 220px;
+        height: 240px;
+    }
+}
+
+.modalConfirm{
+    background-color: white;
+    height: 70px;
+    width: 90%;    
+    margin: 16px 0px;
+    gap: 16px;
+}
+
+.modalConfirm h2{
+    background-color: #fff;
+    text-align: center;
+   
+}
+
+.modalConfirm button{
+    width: 150px;
+    margin: 0 auto;
+}
+
+#menuDrop{
+z-index: 1;
 }

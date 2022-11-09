@@ -1,9 +1,61 @@
-.buttonAdoption{
-    background-color: #33CC66;
-    height: 28px;
-    border-radius: 14px;
-    color: whitesmoke;
-    border: 1px solid #33CC66;
-    font-weight: 500;
-    font-size: 16px;
+/* DEFAULT CSS FOR CLOSING MODAL */
+.button-close {
+  position: absolute;
+  top: 0.5rem;
+  right: 1rem;
+  height: 1.5rem;
+  width: 1.5rem;
+  background-color: transparent;
+  background-image: url(/src/assets/img/close.png);
+  border: none;
+  cursor: pointer;
 }
+
+/* WHAT'S THAT? */
+.buttonAdoption {
+  background-color: #33cc66;
+  height: 28px;
+  border-radius: 14px;
+  color: whitesmoke;
+  border: 1px solid #33cc66;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+/* DEFAULT CSS FOR ALL BUTTONS */
+.buttons-default {
+    /* tamanho, peso e cor */
+    height: 27px;
+    min-width: 93px;
+    padding: 0.25rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    border-radius: 50%;
+}
+.buttons-default:hover {
+    box-shadow: 10px 10px 5px -10px rgba(0, 0, 0, 0.75);
+    cursor: pointer;
+}
+
+/* DEFAULT CSS COLOR BUTTONS */
+.buttons-white {
+    background-color: var(--color-white);
+    color: var(--color-brand);
+    border: solid 1px var(--color-brand);
+}
+.buttons-brand {
+    background-color: var(--color-brand);
+    color: var(--color-white);
+    border: solid 1px var(--color-brand);
+}
+.buttons-green {
+    background-color: var(--color-green);
+    color: var(--color-white);
+    border: solid 1px var(--color-green);
+}
+.buttons-red {
+    background-color: var(--color-white);
+    color: var(--color-red);
+    border: solid 1px var(--color-red);
+}
+
