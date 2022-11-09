@@ -84,10 +84,10 @@ async function renderMyPets(token, profile) {
         "beforeend",
         `<form class="myForm">
           <h2>Atualizar pet</h2>
-          <input required id="name" placeholder="Nome" type="text">
-          <input required id="bread" placeholder="Raça" type="text">
-          <input required id="species" placeholder="Espécie" type="text">
-          <input required id="avatar_url" placeholder="Avatar" type="link">
+          <input required class="input-default" id="name" placeholder="Nome" type="text">
+          <input required class="input-default" id="bread" placeholder="Raça" type="text">
+          <input required class="input-default" id="species" placeholder="Espécie" type="text">
+          <input required class="input-default" id="avatar_url" placeholder="Avatar" type="link">
           <button class="next-button" type="submit">Atualizar</button>
       </form>`
       );
@@ -157,8 +157,8 @@ async function listenners(token) {
       `
     <form class="myForm" action="">
     <h2>Atualizar Perfil</h2>
-    <input  required id="name" placeholder="Nome" type="text">
-    <input  required id="avatar_url" placeholder="Avatar" type="link">
+    <input  required class="input-default" id="name" placeholder="Nome" type="text">
+    <input  required class="input-default" id="avatar_url" placeholder="Avatar" type="link">
     <button class="next-button" type="submit" >Atualizar</button>
   </form>
     `
@@ -227,10 +227,10 @@ async function listenners(token) {
       `
     <form class="myForm" action="">
     <h2>Cadastrar pet</h2>
-    <input  required id="name" placeholder="Nome" type="text">
-    <input  required id="bread" placeholder="Raça" type="text">
-    <input  required id="species" placeholder="Espécie" type="text">
-    <input  required id="avatar_url" placeholder="Avatar" type="link">
+    <input  required class="input-default" id="name" placeholder="Nome" type="text">
+    <input  required class="input-default" id="bread" placeholder="Raça" type="text">
+    <input  required class="input-default" id="species" placeholder="Espécie" type="text">
+    <input  required class="input-default" id="avatar_url" placeholder="Avatar" type="link">
     <button class="next-button" type="submit">Cadastrar</button>
   </form>
     `
