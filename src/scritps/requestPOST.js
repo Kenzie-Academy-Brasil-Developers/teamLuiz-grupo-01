@@ -1,9 +1,9 @@
-export {loginApi, adoptePetApi, registerApi }
+export {loginApi, adoptePetApi, registerApi} 
 const baseUrl = "https://m2-api-adot-pet.herokuapp.com/"
 
-async function adoptePetApi(token,pet) {
+async function adoptePetApi(token, pet) {
 
-    let adoption = await fetch(`${baseUrl}adoptions`,{
+    let adoption = await fetch(`${urlBase}/adoptions`,{
 
         method: "POST",
         headers: {
@@ -51,7 +51,7 @@ export async function createPet(token, dataPet) {
 
 async function loginApi (body){
   
-    const response = await fetch(`${urlBase}/session/login`, {
+    const response = await fetch(`${baseUrl}session/login`, {
         method: "POST",
         headers: {
             "Content-type" : 'application/json'
@@ -72,7 +72,7 @@ async function loginApi (body){
 }
 
 async function registerApi (body){
-    const response = await fetch(`${urlBase}/users`, {
+    const response = await fetch(`${baseUrl}users`, {
         method: "POST",
         headers: {
             "Content-type" : "application/json"
@@ -86,4 +86,3 @@ async function registerApi (body){
         return 'Usuário já cadastrado'
     }
 }
-
