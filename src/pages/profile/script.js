@@ -2,6 +2,7 @@ import { readProfile, readAllMyPets } from "../../scritps/requestGET.js";
 import { openModal } from "../../scritps/modal.js";
 import { dropdown } from "../../scritps/dropdown.js";
 import { updateProfileApi } from "../../scritps/requestPATCH.js";
+import { deleteProfileApi } from "../../scritps/requestDELETE.js";
 
 dropdown();
 const token = JSON.parse(localStorage.getItem('@userToken'))
@@ -26,7 +27,7 @@ verifyAuthorization(token);
 
 async function renderMyProfile(token) {
   const profile = await readProfile(token);
-  console.log(profile)
+
 
   // Atualizando imagem do usuário logado
   const imgProfile = document.querySelector("#img-profile");
@@ -75,7 +76,7 @@ async function renderMyPets(token, profile) {
   });
 }
 
-async function listenners() {
+async function listenners(token) {
 
   const body = document.querySelector('body')
   const buttonRegister = document.querySelector(".buttonRegister");
@@ -97,8 +98,8 @@ async function listenners() {
 
   buttonLogin.addEventListener("click", (e) => {
     e.preventDefault();
-
-    window.location.replace("../homeUnlogged/index.html");
+    localStorage.removeItem("@userToken");
+    window.location.replace("../homeUnlogged/index.html");    
   });
 
   updateProfile.addEventListener("click", (e) => {
@@ -147,8 +148,29 @@ async function listenners() {
 
   deleteProfile.addEventListener("click", (e) => {
     e.preventDefault();
+    const sectionDelete = document.createElement("section");
+    sectionDelete.insertAdjacentHTML("afterbegin",`
+      <h2>Deseja mesmo deletar sua conta?</h2>
+      <button id="cancelDelete">Não desejo deletar minha conta</button>
+      <button id="confirmDelete">Quero deletar minha conta</button>
+    `)
+    openModal(sectionDelete);
 
-    /* openModal(children) */; // WTF CHILDREN
+    const cancelDelete = document.getElementById("cancelDelete");
+    cancelDelete.addEventListener("click",event=>{
+      event.preventDefault();
+      document.querySelector(".modal-background").remove();
+    })
+
+    const confirmDelete = document.getElementById("confirmDelete");
+    confirmDelete.addEventListener("click",async event=>{
+      event.preventDefault();    
+      await deleteProfileApi(token)      
+      setTimeout(() => {
+        window.location.reload()
+      }, 4000)          
+    })
+
   });
 
   buttonRegisterNewPet.addEventListener("click", (e) => {
@@ -166,4 +188,4 @@ async function listenners() {
   });
 }
 
-listenners();
+listenners(token);
