@@ -30,6 +30,7 @@
     padding: 0.25rem 1rem;
     font-size: 0.875rem;
     font-weight: 600;
+    border-radius: 50%;
 }
 .buttons-default:hover {
     box-shadow: 10px 10px 5px -10px rgba(0, 0, 0, 0.75);
