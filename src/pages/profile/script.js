@@ -1,28 +1,32 @@
 import { readProfile, readAllMyPets } from "../../scritps/requestGET.js";
 import { openModal } from "../../scritps/modal.js";
 import { dropdown } from "../../scritps/dropdown.js";
+import { updateProfileApi } from "../../scritps/requestPATCH.js";
 
 dropdown();
+const token = JSON.parse(localStorage.getItem('@userToken'))
+
+
 
 // FUNÇÃO ABAIXO PARA VERIFICAR O LOGIN DO USUÁRIO E REDIRECIONAR PARA A HOMEPAGE CASO ESTEJA SEM LOGIN
 
-// async function verifyAuthorization() {
+async function verifyAuthorization(token) {
 //   // A FUNÇÃO QUE CHAMAR O LOGIN E TROUXER PRA ESTA PAGE PRECISA TRAZER O TOKEN
 
-//   if (token) {
-//     renderMyProfile(token);
-//   } else {
-//     localStorage.removeItem("token");
-//     window.location.replace("../homeUnlogged/index.html");
-//   }
-// }
-// verifyAuthorization();
+if (token) {
+renderMyProfile(token);
+} else {
+  localStorage.removeItem("token");
+  window.location.replace("../homeUnlogged/index.html");
+}
+}
+verifyAuthorization(token);
 
 // FUNÇÃO PARA RENDERIZAR O CORPO DA PÁGINA DE PERFIL
 
 async function renderMyProfile(token) {
   const profile = await readProfile(token);
-  console.log(profile);
+  console.log(profile)
 
   // Atualizando imagem do usuário logado
   const imgProfile = document.querySelector("#img-profile");
@@ -32,12 +36,9 @@ async function renderMyProfile(token) {
   // Atualizando informações do usuário logado
   const name = document.querySelector(".personal-info-name");
   const mail = document.querySelector(".personal-info-email");
-  const bday = document.querySelector(".personal-info-bday");
 
   name.innerHTML = `Nome: ${profile.name}`;
   mail.innerHTML = `E-mail: ${profile.email}`;
-  // bday.innerHTML = `Data de nascimento: ${profile.bday}`
-  // ONDE FICA A INFORMAÇÃO DE DATA DE NASCIMENTO????
 
   // Atualizando botões de atualizar conta e deletar
   const btnUpdate = document.querySelector(".button-profile-update-info");
@@ -50,15 +51,11 @@ async function renderMyProfile(token) {
   renderMyPets(token, profile);
 }
 
-const myTokenTesting =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2Njc5NDAzNDUsImV4cCI6MTY2ODU0NTE0NSwic3ViIjoiNzUxZWYxNzMtZDBkMi00ZmI5LTg3MzQtMTBkN2NlODBlYzViIn0.3I78mS-XXLGkywGC6g5HG08Z8HkmWY8ZL3S8jh9lguI";
-renderMyProfile(myTokenTesting);
 
 async function renderMyPets(token, profile) {
   const boxMyPets = document.querySelector(".box-my-pets");
 
   const myPets = await readAllMyPets(token);
-  console.log(myPets);
 
   myPets.forEach((element) => {
     const available = element.available_for_adoption ? "Sim" : "Não";
@@ -79,6 +76,8 @@ async function renderMyPets(token, profile) {
 }
 
 async function listenners() {
+
+  const body = document.querySelector('body')
   const buttonRegister = document.querySelector(".buttonRegister");
   const buttonLogin = document.querySelector(".buttonLogin");
   const updateProfile = document.querySelector(".button-profile-update-info");
@@ -105,26 +104,64 @@ async function listenners() {
   updateProfile.addEventListener("click", (e) => {
     e.preventDefault();
 
-    openModal(children); // WTF CHILDREN
-  });
+    body.insertAdjacentHTML('beforeend', `
+    <form class="myForm" action="">
+    <h2>Atualizar Perfil</h2>
+    <input  required id="name" placeholder="Nome" type="text">
+    <input  required id="avatar_url" placeholder="Avatar" type="link">
+    <button class="next-button" type="submit" >Atualizar</button>
+  </form>
+    `)
+    const myForm = document.querySelector('.myForm')
+    const buttonConfirm = document.querySelector('.next-button')
+
+    openModal(myForm); // WTF CHILDREN
+
+
+    const data = {}
+
+
+
+    myForm.addEventListener('submit', async (e) => {
+        e.preventDefault()
+
+        const inputs = [...document.querySelectorAll('input')]
+
+        inputs.forEach((e) => {
+            data[e.id] = e.value
+        })
+        const retornoApiUpdate = await updateProfileApi(token, data)
+
+        if(retornoApiUpdate){
+          const myModal = document.querySelector('.modal-background')
+          myModal.remove()
+              setTimeout(() => {
+            window.location.reload()
+          }, 4000)
+        }
+        
+      });
+    })
+
+
 
   deleteProfile.addEventListener("click", (e) => {
     e.preventDefault();
 
-    openModal(children); // WTF CHILDREN
+    /* openModal(children) */; // WTF CHILDREN
   });
 
   buttonRegisterNewPet.addEventListener("click", (e) => {
     e.preventDefault();
 
-    openModal(children); // WTF CHILDREN
+    /* openModal(children) */; // WTF CHILDREN
   });
 
   buttonsUpdatePet.forEach((element) => {
     element.addEventListener("click", (e) => {
       e.preventDefault();
 
-      openModal(children); //WTF CHILDREN?
+      /* openModal(children) */; //WTF CHILDREN?
     });
   });
 }
