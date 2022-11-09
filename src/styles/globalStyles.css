@@ -11,6 +11,7 @@
     --color-white: #FFFFFF;
     --color-black:  #1B1C1E;
     --color-purple-600: #B48CF2;
+    --color-purple-800: #F1EEF7;
     --color-gray-500: #EEEEEE;
     --color-grey-200: #90A4AE;
     --color-red: #EA534A;
@@ -23,4 +24,8 @@
     /* Espaçamento somente entre os inputs dos formulários MODAIS */
     --gap-input: 0.75rem;
 
+}
+.container{
+    width: 90%;
+    margin: 0 auto;
 }

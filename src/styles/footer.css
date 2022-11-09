@@ -1,0 +1,12 @@
+.footer{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: 48px;
+    background: var(--color-purple-800);
+    color: var(--color-brand);
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+}
