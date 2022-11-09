@@ -1,9 +1,9 @@
-export {loginApi, adoptePetApi, registerApi} 
+import { toast } from "./toast.js"
 const baseUrl = "https://m2-api-adot-pet.herokuapp.com/"
 
-async function adoptePetApi(token, pet) {
+export async function adoptePetApi(token, pet) {
 
-    let adoption = await fetch(`${baseUrl}adoptions`,{
+    let adoption = await fetch(`${baseUrl}adoptions`, {
 
         method: "POST",
         headers: {
@@ -32,33 +32,43 @@ export async function createUser(dataUser) {
 }
 
 
-export async function createPet(token, dataPet) {
+export async function createPetApi(token, dataPet) {
     try {
-        const response = await fetch(`${baseUrl}pets`, {
+        const response = await fetch(baseUrl + 'pets', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
-                "Authorization": `Bearer ${token.token}`
+                "Authorization": `Bearer ${token}`
             },
             body: JSON.stringify(dataPet)
         })
+
+        const responseJson = await response.json()
+        if (response.ok) {
+            toast('Pet cadastrado com sucesso', 'green')
+            return responseJson;
+        }
+        else {
+            toast('Parâmetros inválidos', 'red')
+        }
     }
     catch (err) {
+        toast('Ocorreu um erro interno', 'red')
         console.log(err);
     }
 }
 
 
-async function loginApi (body){
-  
+export async function loginApi(body) {
+
     const response = await fetch(`${baseUrl}session/login`, {
         method: "POST",
         headers: {
-            "Content-type" : 'application/json'
+            "Content-type": 'application/json'
         },
         body: JSON.stringify(body)
     })
-    if(response.ok){
+    if (response.ok) {
         const responseJson = await response.json()
         setTimeout(() => {
             window.location.href = "../homeLogged/index.html"
@@ -71,15 +81,15 @@ async function loginApi (body){
 
 }
 
-async function registerApi (body){
+export async function registerApi(body) {
     const response = await fetch(`${baseUrl}users`, {
         method: "POST",
         headers: {
-            "Content-type" : "application/json"
+            "Content-type": "application/json"
         },
         body: JSON.stringify(body)
     })
-    if(response.ok){
+    if (response.ok) {
         return 'ok'
     }
     else {
