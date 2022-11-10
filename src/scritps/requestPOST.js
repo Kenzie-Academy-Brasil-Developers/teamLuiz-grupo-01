@@ -76,7 +76,7 @@ export async function loginApi(body) {
         return responseJson
     }
     else {
-        console.log('usúario e senha errado')
+        toast('Usúario ou senha incorretos', 'red')
     }
 
 }
@@ -90,6 +90,7 @@ export async function registerApi(body) {
         body: JSON.stringify(body)
     })
     if (response.ok) {
+        toast('Usúario registrado com sucesso!', 'green')
         return 'ok'
     }
     else {

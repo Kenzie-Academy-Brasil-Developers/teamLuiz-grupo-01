@@ -193,6 +193,7 @@ async function listenners(token) {
   deleteProfile.addEventListener("click", (e) => {
     e.preventDefault();
     const sectionDelete = document.createElement("section");
+    sectionDelete.classList.add('myForm')
     sectionDelete.insertAdjacentHTML(
       "afterbegin",
       `
