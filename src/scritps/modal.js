@@ -7,6 +7,7 @@ export function openModal(children){
     modalContainer.classList.add("modal-container")
 
     const divTop = document.createElement("div");
+    divTop.classList.add("divTop")
     const closeModalButton = document.createElement("button");
     closeModalButton.classList.add("button-close");
 
@@ -22,6 +23,7 @@ export function openModal(children){
     modalSection.appendChild(children);
 
     const divBotton = document.createElement("div");
+    divBotton.classList.add("divBotton")
 
     modalContainer.append(divTop,modalSection,divBotton);
     backgroundContainer.append(modalContainer);
