@@ -5,23 +5,23 @@ import { dropdown } from "../../scritps/dropdown.js"
 
 
 
+
 let myToken = JSON.parse(localStorage.getItem("@userToken"))
 
 async function showPetsForAdoption(){
 let gettingPets = await getAllPetsApi(myToken)
-console.log(gettingPets)
+
 let petAvaliabled = gettingPets.filter(pet => pet.available_for_adoption == true)
-console.log(petAvaliabled)
+
 petAvaliabled.forEach(renderPet)
 }
 
-async function keepLoged(){
+async function keepLogged(){
     
     if(!localStorage.getItem("@userToken")){
         window.location.assign("../homeUnlogged/index.html")
     }else{
-        let getMyProfile = await readProfile(myToken) 
-        console.log(getMyProfile)      
+        let getMyProfile = await readProfile(myToken)          
         if(getMyProfile == undefined){
             window.location.assign("../homeUnlogged/index.html")
         }        
@@ -30,13 +30,9 @@ async function keepLoged(){
     
 }
 
-keepLoged()
-
-
 const profileButton = document.querySelector(".profileButton")
-console.log(profileButton)
 profileButton.addEventListener("click", ()=>{
- console.log("clicou")
+ 
  window.location.assign("../profile/index.html")
 
 })
@@ -47,6 +43,14 @@ logoutButton.addEventListener("click", ()=>{
     window.location.assign("../homeUnlogged/index.html")
 })
 
+export function refreshPage(){
 
+    document.querySelector(".listAllPets").innerHTML = ""
+
+    keepLogged()
+    showPetsForAdoption()    
+}
+
+keepLogged()
 showPetsForAdoption()
 dropdown()

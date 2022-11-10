@@ -1,6 +1,9 @@
 export {renderPet}
 import {adoptePetApi} from "../scritps/requestPOST.js"
 import {openModal} from "../scritps/modal.js"
+import { refreshPage } from "../pages/homeLogged/script.js"
+import { toast } from "./toast.js"
+
 
 let myToken = JSON.parse(localStorage.getItem("@userToken"))
 
@@ -53,10 +56,11 @@ function confirmAdoptionModal(token, pet){
     let buttonAdoption = document.createElement("button")
     buttonAdoption.innerText = "Adotar"
     buttonAdoption.classList = "buttonAdoption"
-    buttonAdoption.addEventListener("click", ()=>{        
-        adoptePetApi({token:`${token}`},pet)
-        document.querySelector(".modal-background").remove()
-        /*chamar toast avisando que confirmou*/
+    buttonAdoption.addEventListener("click", async ()=>{        
+        await adoptePetApi({token:`${token}`},pet)
+        document.querySelector(".modal-background").remove()        
+        toast("Pet adotado com sucesso!","green")
+        refreshPage()
     })
 
     divModal.append(title,buttonAdoption)

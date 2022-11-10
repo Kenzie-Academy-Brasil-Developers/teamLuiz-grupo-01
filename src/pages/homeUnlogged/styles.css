@@ -3,7 +3,7 @@ main{
 }
 
 .myForm {
-    padding: 60px;
+    padding: 32px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -71,7 +71,7 @@ main{
     }
 
     .buttonLogin {
-        margin-left: 10px;
+        /*margin-left: 10px;*/
         background-color: rgb(78 32 150);
         color: #ffff;
     }
