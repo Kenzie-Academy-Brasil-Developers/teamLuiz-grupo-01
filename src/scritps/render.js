@@ -7,10 +7,10 @@ let myToken = JSON.parse(localStorage.getItem("@userToken"))
 function renderPet(pet){
 
     let li = document.createElement("li")
-    li.classList = "flex column petAdoption"
+    // li.classList = "flex column petAdoption"
 
     let divImgFrame = document.createElement("div")
-    divImgFrame.classList = "flex imgFrame"
+    divImgFrame.classList = "containerImgPet"
 
     let petImg = document.createElement("img")
     petImg.src = `${pet.avatar_url}`
@@ -18,12 +18,12 @@ function renderPet(pet){
     divImgFrame.appendChild(petImg)
 
     let divInfoPet = document.createElement("div")
-    divInfoPet.classList = "flex column petInfo"
+    divInfoPet.classList = "dataPet"
 
     let namePet = document.createElement("h2")
     namePet.innerText = `${pet.name}`
 
-    let speciesPet = document.createElement("span")
+    let speciesPet = document.createElement("p")
     speciesPet.innerText = `${pet.species}`
 
     let buttonAdoption = document.createElement("button")
