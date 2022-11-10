@@ -1,6 +1,7 @@
 main{
     padding-top: 80px;
 }
+
 .myForm {
     padding: 60px;
     display: flex;
@@ -45,81 +46,6 @@ main{
     cursor: pointer;
 }
 
-/* //CAROL */
-
-.containerList {
-    width: 70%;
-    height: 500px;
-    margin: 50px auto;
-}
-
-.listAllPets {
-    width: 100%;
-    height: 100%;
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    gap: 60px;
-    overflow: auto;
-}
-
-::-webkit-scrollbar {
-    width: 0;
-}
-
-.listAllPets li {
-    width: 100%;
-    height: 272px;
-    list-style: none;
-    box-shadow: 2px 1px 10px rgb(180, 180, 180);
-    border-radius: 8px;
-}
-
-.containerImgPet {
-    width: 100%;
-    height: 60%;
-    padding: 0, 5px;
-}
-
-.containerImgPet img {
-    width: 100%;
-    height: 100%;
-    border-radius: 8px 8px 0 0;
-    object-fit: cover;
-}
-
-.dataPet {
-    padding: 10px;
-}
-
-.dataPet h2 {
-    max-width: 15ch;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    font-size: 24px;
-    color: rgb(78 32 150);
-}
-
-.dataPet p {
-    padding: 0 3px;
-    font-size: 8px;
-    color: rgb(161, 161, 161);
-}
-
-footer {
-    text-align: center;
-    font-size: 12px;
-    color: rgb(78 32 150);
-    background-color: rgb(233, 232, 232);
-    height: 40px;
-}
-
-footer p {
-    padding: 10px 0;
-}
-
 @media (min-width: 700px) {
     .containerButtons {
         display: block;
@@ -142,13 +68,5 @@ footer p {
         margin-left: 10px;
         background-color: rgb(78 32 150);
         color: #ffff;
-    }
-
-    .containerList {
-        width: 65%;
-    }
-
-    .listAllPets li {
-        width: 200px;
     }
 }
