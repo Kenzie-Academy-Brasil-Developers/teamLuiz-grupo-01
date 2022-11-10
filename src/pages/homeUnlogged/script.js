@@ -5,15 +5,20 @@ import { getReadAllPets } from "../../scritps/requestGET.js"
 
 
 
-let buttonLogin = document.querySelector('.login')
-let buttonRegister = document.querySelector('.register')
+let buttonLogin = document.querySelectorAll('.login')
+let buttonRegister = document.querySelectorAll('.register')
 let body = document.querySelector('body')
 
-buttonLogin.addEventListener('click', () => {
-    openModalLogin()
+buttonLogin.forEach(button=>{
+    button.addEventListener('click', () => {
+        openModalLogin()
+    })
 })
-buttonRegister.addEventListener('click', () => {
-    openModalRegister()
+
+buttonRegister.forEach(button=>{
+    button.addEventListener('click', () => {
+        openModalRegister()
+    })
 })
 
 function openModalLogin() {
