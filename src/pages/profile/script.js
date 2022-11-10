@@ -126,8 +126,8 @@ async function renderMyPets(token, profile) {
 async function listenners(token) {
   const body = document.querySelector("body");
 
-  const buttonRegister = document.querySelector(".buttonRegister");
-  const buttonLogin = document.querySelector(".buttonLogin");
+  const buttonRegister = document.querySelectorAll(".buttonRegister");
+  const buttonLogin = document.querySelectorAll(".buttonLogin");
   const updateProfile = document.querySelector(".button-profile-update-info");
   const deleteProfile = document.querySelector(
     ".button-profile-delete-account"
@@ -137,17 +137,21 @@ async function listenners(token) {
   );
   const buttonsUpdatePet = document.querySelectorAll(".button-update-my-pet");
 
-  buttonRegister.addEventListener("click", (e) => {
-    e.preventDefault();
+  buttonRegister.forEach(button=>{
+    button.addEventListener("click", (e) => {
+      e.preventDefault();
+  
+      window.location.replace("../homeLogged/index.html");
+    });
+  })
 
-    window.location.replace("../homeLogged/index.html");
-  });
-
-  buttonLogin.addEventListener("click", (e) => {
-    e.preventDefault();
-    localStorage.removeItem("@userToken");
-    window.location.replace("../homeLogged/index.html");
-  });
+  buttonLogin.forEach(button=>{
+    button.addEventListener("click", (e) => {
+      e.preventDefault();
+      localStorage.removeItem("@userToken");
+      window.location.replace("../homeLogged/index.html");
+    });
+  })
 
   updateProfile.addEventListener("click", (e) => {
     e.preventDefault();

@@ -30,18 +30,24 @@ async function keepLogged(){
     
 }
 
-const profileButton = document.querySelector(".profileButton")
-profileButton.addEventListener("click", ()=>{
+const profileButton = document.querySelectorAll(".profileButton")
+profileButton.forEach(button=>{
+    button.addEventListener("click", ()=>{
  
- window.location.assign("../profile/index.html")
-
+        window.location.assign("../profile/index.html")
+       
+       })
 })
 
-const logoutButton = document.querySelector(".logoutButton")
-logoutButton.addEventListener("click", ()=>{
-    localStorage.removeItem("@userToken")
-    window.location.assign("../homeUnlogged/index.html")
+
+const logoutButton = document.querySelectorAll(".logoutButton")
+logoutButton.forEach(button=>{
+    button.addEventListener("click", ()=>{
+        localStorage.removeItem("@userToken")
+        window.location.assign("../homeUnlogged/index.html")
+    })
 })
+
 
 export function refreshPage(){
 
