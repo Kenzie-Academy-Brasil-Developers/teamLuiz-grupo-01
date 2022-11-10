@@ -1,0 +1,21 @@
+.footer{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: 48px;
+    background: var(--color-purple-800);
+    color: var(--color-brand);
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+    text-align: center;
+    font-size: 12px;
+    color: rgb(78 32 150);
+    background-color: rgb(233, 232, 232);
+    height: 40px;  
+}
+
+footer p {
+    padding: 10px 0;
+}

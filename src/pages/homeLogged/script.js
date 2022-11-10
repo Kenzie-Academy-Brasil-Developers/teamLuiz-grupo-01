@@ -1,31 +1,38 @@
-import {getAllPetsApi} from "../../scritps/requestGET.js"
+import {getAllPetsApi, readProfile} from "../../scritps/requestGET.js"
 import {renderPet} from "../../scritps/render.js"
 import { dropdown } from "../../scritps/dropdown.js"
 
 
 
 
-let myToken ={
-    token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2Njc5MTc3MjYsImV4cCI6MTY2ODUyMjUyNiwic3ViIjoiOGIxYWRlNmItZGZkZS00NzVjLTliYjktOTUzODM1MTRlNGQwIn0.uOnxbjxkqHkv-aDcyoVgvLYjU0TGCqcyni5ehV1bbnI"
-}
+
+let myToken = JSON.parse(localStorage.getItem("@userToken"))
 
 async function showPetsForAdoption(){
 let gettingPets = await getAllPetsApi(myToken)
-console.log(gettingPets)
+
 let petAvaliabled = gettingPets.filter(pet => pet.available_for_adoption == true)
-console.log(petAvaliabled)
+
 petAvaliabled.forEach(renderPet)
 }
 
+async function keepLogged(){
+    
+    if(!localStorage.getItem("@userToken")){
+        window.location.assign("../homeUnlogged/index.html")
+    }else{
+        let getMyProfile = await readProfile(myToken)          
+        if(getMyProfile == undefined){
+            window.location.assign("../homeUnlogged/index.html")
+        }        
+    }
 
-
-showPetsForAdoption()
-dropdown()
+    
+}
 
 const profileButton = document.querySelector(".profileButton")
-console.log(profileButton)
 profileButton.addEventListener("click", ()=>{
- console.log("clicou")
+ 
  window.location.assign("../profile/index.html")
 
 })
@@ -35,3 +42,15 @@ logoutButton.addEventListener("click", ()=>{
     localStorage.removeItem("@userToken")
     window.location.assign("../homeUnlogged/index.html")
 })
+
+export function refreshPage(){
+
+    document.querySelector(".listAllPets").innerHTML = ""
+
+    keepLogged()
+    showPetsForAdoption()    
+}
+
+keepLogged()
+showPetsForAdoption()
+dropdown()

@@ -1,0 +1,79 @@
+.container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.containerList {
+    width: 70%;
+   /* height: 500px;*/
+    margin: 50px auto;
+}
+
+.listAllPets {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 60px;
+    overflow: auto;
+    padding: 16px;
+}
+
+::-webkit-scrollbar {
+    width: 0;
+}
+
+.listAllPets li {
+    width: 100%;
+    height: 272px;
+    list-style: none;
+    box-shadow: 2px 1px 10px rgb(180, 180, 180);
+    border-radius: 8px;
+}
+
+.containerImgPet {
+    width: 100%;
+    height: 60%;
+    padding: 0, 5px;
+}
+
+.containerImgPet img {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px 8px 0 0;
+    object-fit: cover;
+}
+
+.dataPet {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.dataPet h2 {
+    max-width: 15ch;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 24px;
+    color: rgb(78 32 150);
+}
+
+.dataPet p {
+    padding: 0 3px;
+    font-size: 8px;
+    color: rgb(161, 161, 161);
+}
+
+@media (min-width: 700px) {
+    
+    .containerList {
+        width: 65%;
+    }
+
+    .listAllPets li {
+        width: 200px;
+    }
+}

@@ -1,42 +1,47 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <link rel="stylesheet" href="../../styles/globalStyles.css" />
-    <link rel="stylesheet" href="../../styles/buttons.css" />
-    <link rel="stylesheet" href="../../styles/dropdown.css" />
-    <link rel="stylesheet" href="../../styles/inputs.css" />
-    <link rel="stylesheet" href="../../styles/modal.css" />
-    <link rel="stylesheet" href="../../styles/text.css" />
-    <link rel="stylesheet" href="../../styles/toast.css" />
-    <link rel="stylesheet" href="./styles.css" />
-
-    <script defer type="module" src="./script.js"></script>
-
-    <title>Meu Perfil</title>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="/src/styles/globalStyles.css">
+      <link rel="stylesheet" href="/src/styles/header.css">
+      <link rel="stylesheet" href="/src/styles/dropdown.css">
+      <link rel="stylesheet" href="/src/styles/buttons.css">
+      <link rel="stylesheet" href="/src/styles/modal.css">
+      <link rel="stylesheet" href="/src/styles/inputs.css">
+      <link rel="stylesheet" href="/src/styles/cards.css">
+      <link rel="stylesheet" href="/src/styles/footer.css">
+      <link rel="stylesheet" href="/src/styles/toast.css">
+      <link rel="stylesheet" href="styles.css">
+      <title>Perfil - Kenzie Pets</title>
   </head>
-  <body>
-    <header>
-      <div class="containerHeader">
-        <button class="dropdown" id="dropdown">
-          <img src="../../assets/img/menu.svg" alt="" />
-        </button>
-        <img src="../../assets/img/Logo.svg" alt="" />
-        <div class="containerButtons">
-          <button class="hideMe buttonRegister" id="menuDrop">Home</button>
-          <button class="hideMe buttonLogin" id="menuDrop">Logout</button>
+
+
+  <body>  
+    <header class="header">
+        <div class="container">            
+            <img class="logo" src="../../assets/img/Logo.svg" alt="">  
+            <div class="nav-container-buttons">
+              <button class="login buttonRegister buttons-default buttons-white">Home</button>
+              <button class="register buttonLogin buttons-default buttons-brand">Logout</button>
+            </div>
+            <button class="dropdown" id="dropdown"></button>          
         </div>
+    </header>   
+    <main>
+      
+      <div class="container-buttons hideMe" id="containerButtons">
+          <button class="login buttonRegister buttons-default buttons-white">Home</button>
+          <button class="register buttonLogin buttons-default buttons-brand">Logout</button>
       </div>
-    </header>
 
-    <main class="container-profile">
-      <div class="profile-box-purple"></div>
-      <img id="img-profile" src="" alt="" />
+      <div class="profile-box-purple">
+        <img id="img-profile" src="" alt="" />
+      </div>      
 
-      <section class="section-profile-content">
+      <section class="section-profile-content container">
         <h2>Dados Pessoais</h2>
 
         <div class="div-personal-info">
@@ -45,18 +50,20 @@
         </div>
 
         <div class="div-buttons-update-info-delete-account">
-          <button class="button-profile-update-info">
-            Atualizar informações
-          </button>
-          <button class="button-profile-delete-account">Deletar conta</button>
+          <button class="buttons-default buttons-brand button-profile-update-info">Atualizar informações</button>
+          <button class="buttons-default buttons-red button-profile-delete-account">Deletar conta</button>
         </div>
       </section>
 
-      <section class="section-my-pets">
-        <button class="button-register-new-pet">Cadastrar novo pet</button>
+      <section class="section-my-pets container">
+        <button class="buttons-default buttons-green button-register-new-pet">Cadastrar novo pet</button>
 
         <div class="box-my-pets"></div>
       </section>
     </main>
+    <footer class="footer">
+        <p>KenziePets | Todos os Direitos Reservados</p>
+    </footer>
+    <script src="script.js" type="module"></script>
   </body>
 </html>
