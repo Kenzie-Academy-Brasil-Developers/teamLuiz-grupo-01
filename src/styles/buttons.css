@@ -33,7 +33,6 @@
     border-radius: var(--radius);
 }
 .buttons-default:hover {
-    box-shadow: 10px 10px 5px -10px rgba(0, 0, 0, 0.75);
     cursor: pointer;
 }
 
@@ -54,8 +53,8 @@
     border: solid 1px var(--color-green);
 }
 .buttons-red {
-    background-color: var(--color-white);
-    color: var(--color-red);
-    border: solid 1px var(--color-red);
+    background-color: var(--color-white) !important;
+    color: var(--color-red) !important;
+    border: solid 1px var(--color-red) !important;
 }
 
