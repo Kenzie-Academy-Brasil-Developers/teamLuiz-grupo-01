@@ -25,7 +25,7 @@
 /* DEFAULT CSS FOR ALL BUTTONS */
 .buttons-default {
     /* tamanho, peso e cor */
-    height: 27px;
+    min-height: 27px; 
     min-width: 93px;
     padding: 0.25rem 1rem;
     font-size: 0.875rem;

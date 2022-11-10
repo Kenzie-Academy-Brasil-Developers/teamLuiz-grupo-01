@@ -5,6 +5,10 @@ main{
   align-items: center;
 }
 
+.nav-container-buttons{
+  display: none;
+}
+
 ::-webkit-scrollbar {
   width: 0;
 }
@@ -17,7 +21,6 @@ main{
   display: flex;
   justify-content: center;
 }
-
 #img-profile {
   border: solid 5px var(--color-white);
   border-radius: 50%;
@@ -29,24 +32,38 @@ main{
 }
 
 .section-profile-content {
+  height: 254px;
   margin-top: 14rem;
   background-color: var(--color-white);
   box-shadow: 0px 0px 5px rgba(78, 32, 150, 0.25);
   border-radius: 4px;
-  width: 90%;
-  min-height: 15.875rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1.125rem;
   padding: 1.5rem;
+}
+.section-profile-content > h2{
+  width: 100%;
+  text-align: center;
+  color: var(--color-brand);
+}
+.div-personal-info span{
+  color: var(--color-brand);
+}
+.div-buttons-update-info-delete-account{
+  display: flex;
+  gap: 0.5rem;
 }
 
 .section-my-pets {
-  /* background-color: aqua; */
-  margin: 5rem auto;
-  width: 90%;
+  margin-top: 5rem;
+  margin-bottom: 3rem;
   display: flex;
   flex-direction: column;
-  gap: 2.875rem;
+  gap: 2.875rem;  
 }
-
 .section-my-pets > button {
   display: flex;
   align-items: center;
@@ -55,29 +72,77 @@ main{
 }
 
 .box-my-pets {
-  /* background-color: burlywood; */
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 4rem;
 }
-
-.card-my-pet {
-  display: flex;
+.card-my-pet {  
   width: 100%;
-  min-height: 200px;
-  background: #ffffff;
+  height: 200px;
+  background: var(--color-white);  
   box-shadow: 0px 0px 5px rgba(78, 32, 150, 0.25);
   border-radius: 4px;
+  display: flex;
+  align-items: center;
 }
-
 .card-my-pet img {
   width: 40%;
-  height: calc(width);
+  height: 100%;
+  object-fit: cover;
+  border: 4px 0 0 4px;
 }
-
+.card-my-pet button{
+  width: min-content;
+}
 .div-card-info {
-  padding: 2.25rem;
+  padding-left: 2rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
+  gap: 0.5rem;
+}
+.div-card-info span{
+  color: var(--color-brand);
+}
+
+
+@media (min-width: 700px) {
+  .header{
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+
+  .dropdown{
+    display: none;
+  }
+
+  .nav-container-buttons{
+    display: flex;
+    gap: 1rem;
+  }
+
+  main{
+    max-width: 1440px;
+  }
+
+  .section-profile-content{
+    max-width: 480px;
+  }
+
+  .section-my-pets{
+    max-width: 1024px;
+    margin: 0 auto;
+    margin-top: 5rem;
+    margin-bottom: 3rem;
+  }
+
+  .box-my-pets{    
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .card-my-pet{
+    max-width: 480px;
+  }
 }
