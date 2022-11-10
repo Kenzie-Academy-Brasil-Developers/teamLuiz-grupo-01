@@ -22,10 +22,14 @@
     <header class="header">
         <div class="container">            
             <img class="logo" src="../../assets/img/Logo.svg" alt="">  
+            <div class="nav-container-buttons">
+              <button class="login buttonRegister buttons-default buttons-white">Home</button>
+              <button class="register buttonLogin buttons-default buttons-brand">Logout</button>
+            </div>
             <button class="dropdown" id="dropdown"></button>          
         </div>
     </header>   
-    <main class="container">
+    <main>
       
       <div class="container-buttons hideMe" id="containerButtons">
           <button class="login buttonRegister buttons-default buttons-white">Home</button>
@@ -36,7 +40,7 @@
         <img id="img-profile" src="" alt="" />
       </div>      
 
-      <section class="section-profile-content">
+      <section class="section-profile-content container">
         <h2>Dados Pessoais</h2>
 
         <div class="div-personal-info">
@@ -45,15 +49,13 @@
         </div>
 
         <div class="div-buttons-update-info-delete-account">
-          <button class="button-profile-update-info">
-            Atualizar informações
-          </button>
-          <button class="button-profile-delete-account">Deletar conta</button>
+          <button class="buttons-default buttons-brand button-profile-update-info">Atualizar informações</button>
+          <button class="buttons-default buttons-red button-profile-delete-account">Deletar conta</button>
         </div>
       </section>
 
-      <section class="section-my-pets">
-        <button class="button-register-new-pet">Cadastrar novo pet</button>
+      <section class="section-my-pets container">
+        <button class="buttons-default buttons-green button-register-new-pet">Cadastrar novo pet</button>
 
         <div class="box-my-pets"></div>
       </section>
