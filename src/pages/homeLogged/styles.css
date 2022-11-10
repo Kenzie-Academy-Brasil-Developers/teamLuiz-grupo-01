@@ -2,21 +2,27 @@ main{
     padding-top: 80px;
 }
 
-.petInfo{
+.dataPet{
+    display: flex;
+    flex-direction: column;
     gap: 8px;
     padding: 12px;
 }
 
-.petInfo button{
-width: 50%;
+.dataPet button{
+    margin-top: 16px;
+width: 100%;
 margin: 0 auto;
 }
 
 .modalConfirm{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     background-color: white;
-    height: 70px;
+    height: 100px;
     width: 90%;    
-    margin: 16px 0px;
+    margin: 32px;
     gap: 16px;
 }
 
@@ -27,8 +33,10 @@ margin: 0 auto;
 }
 
 .modalConfirm button{
+
     width: 150px;
-    margin: 0 auto;
+    height: 32px;
+    margin: 0px auto;
 }
 
 #menuDrop{
