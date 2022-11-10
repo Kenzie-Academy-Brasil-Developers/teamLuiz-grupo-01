@@ -148,6 +148,7 @@ main{
   line-height: 19px;
   background-color: var(--color-brand);
   cursor: pointer;
+}
 
 @media (min-width: 700px) {
   .header{
