@@ -1,6 +1,10 @@
 main{
     padding-top: 80px;
 }
+.nav-container-buttons{
+    display: none;
+  }
+  
 
 .myForm {
     padding: 32px;
@@ -53,6 +57,20 @@ main{
 }
 
 @media (min-width: 700px) {
+    .header{
+        max-width: 1440px;
+        margin: 0 auto;
+      }
+    
+      .dropdown{
+        display: none;
+      }
+    
+      .nav-container-buttons{
+        display: flex;
+        gap: 1rem;
+      }
+
     .containerButtons {
         display: block;
     }

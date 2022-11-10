@@ -2,6 +2,10 @@ main{
     padding-top: 80px;
 }
 
+.nav-container-buttons{
+    display: none;
+}
+
 .dataPet{
     display: flex;
     flex-direction: column;
@@ -43,4 +47,20 @@ cursor: pointer;
 
 #menuDrop{
 z-index: 1;
+}
+
+@media (min-width: 700px) {
+    .header{
+        max-width: 1440px;
+        margin: 0 auto;
+      }
+    
+      .dropdown{
+        display: none;
+      }
+    
+      .nav-container-buttons{
+        display: flex;
+        gap: 1rem;
+      }
 }
