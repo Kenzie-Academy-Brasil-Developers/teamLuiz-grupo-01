@@ -5,7 +5,7 @@ main{
 ul {
     padding-top: 80px;
     list-style: none;
-    gap: 16px;
+    gap: var(--gap-list);
 }
 
 .flex {
@@ -57,6 +57,9 @@ width: 50%;
 margin: 0 auto;
 }
 
+ul{
+    padding-bottom: 128px;
+}
 
 
 @media (min-width: 768px){
