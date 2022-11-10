@@ -36,8 +36,8 @@ async function renderMyProfile(token) {
   const name = document.querySelector(".personal-info-name");
   const mail = document.querySelector(".personal-info-email");
 
-  name.innerHTML = `Nome: ${profile.name}`;
-  mail.innerHTML = `E-mail: ${profile.email}`;
+  name.innerHTML = `<span>Nome:</span> ${profile.name}`;
+  mail.innerHTML = `<span>Email:</span> ${profile.email}`;
 
   // Atualizando botões de atualizar conta e deletar
   const btnUpdate = document.querySelector(".button-profile-update-info");
@@ -65,10 +65,10 @@ async function renderMyPets(token, profile) {
       `<article class="card-my-pet">
         <img src="${element.avatar_url}" alt="${element.name}">
         <div class="div-card-info">
-          <h3>Nome: ${element.name}</h3>
-          <h3>Espécie: ${element.bread}</h3>
-          <h3>Adotável: ${available}</h3>
-          <button id="${element.id}" class="button-update-my-pet">Atualizar</button>
+          <p><span>Nome:</span> ${element.name}</p>
+          <p><span>Espécie:</span> ${element.bread}</p>
+          <p><span>Adotável:</span> ${available}</p>
+          <button id="${element.id}" class="buttons-default buttons-brand button-update-my-pet">Atualizar</button>
         </div>
       </article>`
     );
@@ -88,7 +88,7 @@ async function renderMyPets(token, profile) {
           <input required class="input-default" id="bread" placeholder="Raça" type="text">
           <input required class="input-default" id="species" placeholder="Espécie" type="text">
           <input required class="input-default" id="avatar_url" placeholder="Avatar" type="link">
-          <button class="next-button" type="submit">Atualizar</button>
+          <button class="buttons-default buttons-brand next-button" type="submit">Atualizar</button>
       </form>`
       );
 
@@ -140,13 +140,13 @@ async function listenners(token) {
   buttonRegister.addEventListener("click", (e) => {
     e.preventDefault();
 
-    window.location.replace("../homeUnlogged/index.html");
+    window.location.replace("../homeLogged/index.html");
   });
 
   buttonLogin.addEventListener("click", (e) => {
     e.preventDefault();
     localStorage.removeItem("@userToken");
-    window.location.replace("../homeUnlogged/index.html");
+    window.location.replace("../homeLogged/index.html");
   });
 
   updateProfile.addEventListener("click", (e) => {
@@ -159,7 +159,7 @@ async function listenners(token) {
     <h2>Atualizar Perfil</h2>
     <input  required class="input-default" id="name" placeholder="Nome" type="text">
     <input  required class="input-default" id="avatar_url" placeholder="Avatar" type="link">
-    <button class="next-button" type="submit" >Atualizar</button>
+    <button class="buttons-default buttons-brand next-button" type="submit" >Atualizar</button>
   </form>
     `
     );
@@ -197,8 +197,8 @@ async function listenners(token) {
       "afterbegin",
       `
       <h2>Deseja mesmo deletar sua conta?</h2>
-      <button id="cancelDelete">Não desejo deletar minha conta</button>
-      <button id="confirmDelete">Quero deletar minha conta</button>
+      <button class="buttons-default buttons-brand" id="cancelDelete">Não desejo deletar minha conta</button>
+      <button class="buttons-default buttons-red" id="confirmDelete">Quero deletar minha conta</button>
     `
     );
     openModal(sectionDelete);
@@ -231,7 +231,7 @@ async function listenners(token) {
     <input  required class="input-default" id="bread" placeholder="Raça" type="text">
     <input  required class="input-default" id="species" placeholder="Espécie" type="text">
     <input  required class="input-default" id="avatar_url" placeholder="Avatar" type="link">
-    <button class="next-button" type="submit">Cadastrar</button>
+    <button class="buttons-default buttons-brand next-button" type="submit">Cadastrar</button>
   </form>
     `
     );
@@ -259,13 +259,6 @@ async function listenners(token) {
     });
   });
 
-  buttonsUpdatePet.forEach((element) => {
-    element.addEventListener("click", (e) => {
-      e.preventDefault();
-
-      /* openModal(children) */ //WTF CHILDREN?
-    });
-  });
 }
 
 listenners(token);
