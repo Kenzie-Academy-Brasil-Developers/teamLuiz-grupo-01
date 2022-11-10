@@ -13,6 +13,7 @@ main{
     margin-top: 16px;
 width: 100%;
 margin: 0 auto;
+cursor: pointer;
 }
 
 .modalConfirm{
@@ -37,6 +38,7 @@ margin: 0 auto;
     width: 150px;
     height: 32px;
     margin: 0px auto;
+    cursor: pointer;
 }
 
 #menuDrop{
