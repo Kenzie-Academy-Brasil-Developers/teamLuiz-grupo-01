@@ -45,6 +45,12 @@ main{
     background-color: var(--color-brand);
     cursor: pointer;
 }
+.not-register {
+    font-size: 8px;
+}
+.already-register {
+    font-size: 8px;
+}
 
 @media (min-width: 700px) {
     .containerButtons {

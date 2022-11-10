@@ -26,7 +26,7 @@ function openModalLogin() {
         <input id="email" required placeholder="E-mail" type="email">
         <input id="password" required placeholder="Senha" type="password">
         <button>Entrar</button>
-        <p>Não tem cadastro? <a class="link-click" href="">Clique aqui </a>para se cadastrar.</p>
+        <p class="not-register">Não tem cadastro? <a class="link-click" href="">Clique aqui </a>para se cadastrar.</p>
     </form>
         
         `)
@@ -68,7 +68,7 @@ function openModalRegister() {
         <input id="password" required placeholder="Senha" type="password">
         <input id="avatar_url" required placeholder="Avatar?" type="link">
         <button>Cadastrar</button>
-        <p>Já tem cadastro? <a class="link-click" href="">Clique aqui </a>para se logar.</p>
+        <p class="already-register">Já tem cadastro? <a class="link-click" href="">Clique aqui </a>para se logar.</p>
     </form>
         
         `)
