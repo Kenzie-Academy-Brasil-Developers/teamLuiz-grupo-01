@@ -39,3 +39,9 @@
     background-color: var(--color-brand);
     border-radius: 0 0 1rem 1rem;
 }
+
+@media(min-width: 700px){
+    .modal-container {
+        max-width: 520px;
+    }
+}

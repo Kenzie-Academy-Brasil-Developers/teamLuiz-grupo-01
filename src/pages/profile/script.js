@@ -37,6 +37,8 @@ async function renderMyProfile(token) {
   const mail = document.querySelector(".personal-info-email");
 
   name.innerHTML = `<span>Nome:</span> ${profile.name}`;
+  name.id = `${profile.name}`
+  name.classlist = 'name-user-profile'
   mail.innerHTML = `<span>Email:</span> ${profile.email}`;
 
   // Atualizando botões de atualizar conta e deletar
@@ -63,9 +65,11 @@ async function renderMyPets(token, profile) {
     boxMyPets.insertAdjacentHTML(
       "beforeend",
       `<article class="card-my-pet">
-        <img src="${element.avatar_url}" alt="${element.name}">
+        <img id="avatar_url" src="${element.avatar_url}" alt="${element.name}">
         <div class="div-card-info">
-          <p><span>Nome:</span> ${element.name}</p>
+          <p>
+          <span>Nome:</span> ${element.name}
+          </p>
           <p><span>Espécie:</span> ${element.bread}</p>
           <p><span>Adotável:</span> ${available}</p>
           <button id="${element.id}" class="buttons-default buttons-brand button-update-my-pet">Atualizar</button>
@@ -161,8 +165,8 @@ async function listenners(token) {
       `
     <form class="myForm" action="">
     <h2>Atualizar Perfil</h2>
-    <input  required class="input-default" id="name" placeholder="Nome" type="text">
-    <input  required class="input-default" id="avatar_url" placeholder="Avatar" type="link">
+    <input required value="${document.querySelector(".personal-info-name").id}" class="input-default" id="name" placeholder="Nome" type="text">
+    <input required value="${document.querySelector('#avatar_url').src}" class="input-default" id="avatar_url" placeholder="Avatar" type="link">
     <button class="buttons-default buttons-brand next-button" type="submit" >Atualizar</button>
   </form>
     `
