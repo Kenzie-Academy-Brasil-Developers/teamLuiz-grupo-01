@@ -71,7 +71,7 @@ export async function loginApi(body) {
     if (response.ok) {
         const responseJson = await response.json()
         setTimeout(() => {
-            window.location.href = "../homeLogged/index.html"
+            window.location.href = "../homeLogged/"
         }, 1000)
         return responseJson
     }

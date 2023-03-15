@@ -6,7 +6,7 @@
   height: 1.5rem;
   width: 1.5rem;
   background-color: transparent;
-  background-image: url(/src/assets/img/close.png);
+  background-image: url(../assets/img/close.png);
   border: none;
   cursor: pointer;
 }
